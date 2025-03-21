@@ -4,7 +4,8 @@
  */
 
 /* Global Variables */
-
+    var trainer = false;
+    var count = 0;
 
 /** 
  * main  
@@ -14,7 +15,12 @@
  */
 /* Main */
 function main(){
-
+    let again = true;
+    while (again ==true) {
+        trainer = confirm("Trainer mode?");
+        playNim();
+        again = confirm("play again?");
+    }
 }
 
 /** 
@@ -24,7 +30,18 @@ function main(){
  * @return none
  */
 function playNim(){
-
+    count = 0;
+    whie (count < 21) {
+        userTurn();
+    if (count > 20) {
+        alert("You lose!");
+    }
+     else {
+        cpuTurn();
+        if (count > 20) {
+            alert("You win!");
+        }
+    }
 }
 
 /** 
@@ -34,7 +51,15 @@ function playNim(){
  * @return none
  */
 function userTurn(){
-
+    let turn = prompt("input a number within range 1-3");
+    turn = parseInt(turn);
+    if (turn < 1 || turn > 3) {
+    alert("your input is invalid!");
+        userTurn();
+    }
+    else {
+        count += turn;
+        alert("count is now " + count);
 }
 
 /** 
